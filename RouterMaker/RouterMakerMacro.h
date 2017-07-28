@@ -28,8 +28,8 @@
 #define _RouterMakerPath(_prefix, _path, _seperator, _class)    \
 @property (nonatomic, strong, readonly) RouterMaker *_path; \
 @property (nonatomic, class, readonly) RouterMaker *_path; \
-@property (nonatomic, copy, readonly) RouterMaker *(^ __RouterMakerPathMapBlock(_path) )() ;  \
-@property (nonatomic, class, readonly) RouterMaker *(^ __RouterMakerPathMapBlock(_path) )() ;  \
+@property (nonatomic, copy, readonly) RouterMaker *(^ __RouterMakerPathMapBlock(_path) )(NSString *urlQuery) ;  \
+@property (nonatomic, class, readonly) RouterMaker *(^ __RouterMakerPathMapBlock(_path) )(NSString *urlQuery) ;  \
 @property (nonatomic, strong, readonly) _class *_RouterMakerContact_4(_prefix, _path, _seperator, _class) UNAVAILABLE_ATTRIBUTE;
 
 #define __RouterMakerPathMapPrefix              __RouterMakerPath__
@@ -39,7 +39,7 @@
 #define RouterMakerPathMapSeperator             _RouterMakerToString(__RouterMakerPathMapSeperator)
 #define RouterMakerPathMapBlockSuffix           _RouterMakerToString(__RouterMakerPathMapBlockSuffix)
 
-#define RouterMaker_Path(_path, _class)         _RouterMakerPath(__RouterMakerPathMapPrefix, _path, __RouterMakerPathMapSeperator, _class)
+#define RouterMaker_Path_O(_path, _class)         _RouterMakerPath(__RouterMakerPathMapPrefix, _path, __RouterMakerPathMapSeperator, _class)
 
 
 //
@@ -47,7 +47,7 @@
 
 #define _RouterMakerHost(_prefix, _host, _seperator, _class) \
 @property (nonatomic, class, readonly) RouterMaker *_host;      \
-@property (nonatomic, copy, readonly) void (^_host)();  \
+@property (nonatomic, copy, readonly) void (^_host)(NSString *urlQuery);  \
 @property (nonatomic, strong, readonly) _class *_RouterMakerContact_4(_prefix, _host, _seperator, _class) UNAVAILABLE_ATTRIBUTE;
 
 #define __RouterMakerHostMapPrefix               __RouterMakerHost__
@@ -56,7 +56,7 @@
 #define RouterMakerHostMapPrefix                 _RouterMakerToString(__RouterMakerHostMapPrefix)
 #define RouterMakerHostMapSeperator              _RouterMakerToString(__RouterMakerHostMapSeperator)
 
-#define RouterMaker_Host(_host, _class)          _RouterMakerHost(__RouterMakerHostMapPrefix, _host, __RouterMakerHostMapSeperator, _class)
+#define RouterMaker_Host_O(_host, _class)          _RouterMakerHost(__RouterMakerHostMapPrefix, _host, __RouterMakerHostMapSeperator, _class)
 
 
 //
@@ -88,14 +88,14 @@
 @end
 
 // default scheme
-#define RouterMaker_DefaultScheme                   @"lgl"
-#define RouterMaker_CustomScheme(_custom_scheme)    _RouterMaker_CustomScheme_(_custom_scheme, __COUNTER__)
+#define RouterMaker_DefaultScheme                       @"lgl"
+#define RouterMaker_CustomScheme_O(_custom_scheme)      _RouterMaker_CustomScheme_(_custom_scheme, __COUNTER__)
 
 
 //
 #pragma mark - - custom hosts and paths
 
-#define RouterMaker_CustomHostsAndPaths(_custom_hosts, _custom_paths)    \
+#define RouterMaker_CustomHostsAndPaths_O(_custom_hosts, _custom_paths)    \
 \
 @protocol RouterMaker_HostProtocol <NSObject>   \
 @optional   \

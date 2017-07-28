@@ -10,6 +10,15 @@
 #import "RouterMakerContext.h"
 #import "RouterMakerMacro.h"
 
+#define RouterMaker_Host(_host, _class)         RouterMaker_Host_O(_host, _class)
+
+#define RouterMaker_Path(_path, _class)         RouterMaker_Path_O(_path, _class)
+
+#define RouterMaker_CustomScheme(_custom_scheme)        RouterMaker_CustomScheme_O(_custom_scheme)
+
+#define RouterMaker_CustomHostsAndPaths(_custom_hosts, _custom_paths)   RouterMaker_CustomHostsAndPaths_O(_custom_hosts, _custom_paths)
+
+
 @interface RouterMaker : NSObject
 
 @property (nonatomic, copy, readonly) NSString *string;
@@ -18,11 +27,7 @@
 
 @property (nonatomic, copy, readonly) void(^show)(NSString *urlQuery, void(^how)(RouterMakerContext *context));
 
-
-/**
- 可带参数 urlQuery，也可以什么都不传
- */
-@property (nonatomic, copy, readonly) void(^open)(/* NSString *urlQuery */);
+@property (nonatomic, copy, readonly) void(^open)( NSString *urlQuery );
 
 /**
  对于从后台获取的 routerUrl 及其参数，可以将其解析成 RouterMakerContext 对象，然后调用此方法进行跳转

@@ -14,6 +14,13 @@
 		E70A34551F2AD8490009EFB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E70A34541F2AD8490009EFB4 /* Assets.xcassets */; };
 		E70A34581F2AD84A0009EFB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E70A34561F2AD8490009EFB4 /* LaunchScreen.storyboard */; };
 		E70A346B1F2ADD250009EFB4 /* RouterMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = E70A34681F2ADD250009EFB4 /* RouterMaker.m */; };
+		E74373671F2AEA5100FFC34E /* RouterMakerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E74373661F2AEA5100FFC34E /* RouterMakerConfig.m */; };
+		E743736C1F2AEB1A00FFC34E /* Push.m in Sources */ = {isa = PBXBuildFile; fileRef = E743736B1F2AEB1A00FFC34E /* Push.m */; };
+		E743736F1F2AEB3900FFC34E /* Present.m in Sources */ = {isa = PBXBuildFile; fileRef = E743736E1F2AEB3900FFC34E /* Present.m */; };
+		E74373721F2AEB4100FFC34E /* Home.m in Sources */ = {isa = PBXBuildFile; fileRef = E74373711F2AEB4100FFC34E /* Home.m */; };
+		E74373781F2AEB6C00FFC34E /* ViewC2.m in Sources */ = {isa = PBXBuildFile; fileRef = E74373771F2AEB6C00FFC34E /* ViewC2.m */; };
+		E743737B1F2AEB7800FFC34E /* ViewC1.m in Sources */ = {isa = PBXBuildFile; fileRef = E743737A1F2AEB7800FFC34E /* ViewC1.m */; };
+		E743737E1F2AEB8A00FFC34E /* ViewC3.m in Sources */ = {isa = PBXBuildFile; fileRef = E743737D1F2AEB8A00FFC34E /* ViewC3.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +38,20 @@
 		E70A34681F2ADD250009EFB4 /* RouterMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouterMaker.m; sourceTree = "<group>"; };
 		E70A34691F2ADD250009EFB4 /* RouterMakerContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouterMakerContext.h; sourceTree = "<group>"; };
 		E70A346A1F2ADD250009EFB4 /* RouterMakerMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouterMakerMacro.h; sourceTree = "<group>"; };
+		E74373651F2AEA5100FFC34E /* RouterMakerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouterMakerConfig.h; sourceTree = "<group>"; };
+		E74373661F2AEA5100FFC34E /* RouterMakerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouterMakerConfig.m; sourceTree = "<group>"; };
+		E743736A1F2AEB1A00FFC34E /* Push.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Push.h; sourceTree = "<group>"; };
+		E743736B1F2AEB1A00FFC34E /* Push.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Push.m; sourceTree = "<group>"; };
+		E743736D1F2AEB3900FFC34E /* Present.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Present.h; sourceTree = "<group>"; };
+		E743736E1F2AEB3900FFC34E /* Present.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Present.m; sourceTree = "<group>"; };
+		E74373701F2AEB4100FFC34E /* Home.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Home.h; sourceTree = "<group>"; };
+		E74373711F2AEB4100FFC34E /* Home.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Home.m; sourceTree = "<group>"; };
+		E74373761F2AEB6C00FFC34E /* ViewC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewC2.h; sourceTree = "<group>"; };
+		E74373771F2AEB6C00FFC34E /* ViewC2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewC2.m; sourceTree = "<group>"; };
+		E74373791F2AEB7800FFC34E /* ViewC1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewC1.h; sourceTree = "<group>"; };
+		E743737A1F2AEB7800FFC34E /* ViewC1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewC1.m; sourceTree = "<group>"; };
+		E743737C1F2AEB8A00FFC34E /* ViewC3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewC3.h; sourceTree = "<group>"; };
+		E743737D1F2AEB8A00FFC34E /* ViewC3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewC3.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +85,10 @@
 		E70A34471F2AD8490009EFB4 /* RouterMakerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E74373651F2AEA5100FFC34E /* RouterMakerConfig.h */,
+				E74373661F2AEA5100FFC34E /* RouterMakerConfig.m */,
+				E74373681F2AEB0300FFC34E /* testHosts */,
+				E74373691F2AEB0300FFC34E /* testPaths */,
 				E70A344B1F2AD8490009EFB4 /* AppDelegate.h */,
 				E70A344C1F2AD8490009EFB4 /* AppDelegate.m */,
 				E70A344E1F2AD8490009EFB4 /* ViewController.h */,
@@ -94,6 +119,32 @@
 				E70A34681F2ADD250009EFB4 /* RouterMaker.m */,
 			);
 			path = RouterMaker;
+			sourceTree = "<group>";
+		};
+		E74373681F2AEB0300FFC34E /* testHosts */ = {
+			isa = PBXGroup;
+			children = (
+				E743736A1F2AEB1A00FFC34E /* Push.h */,
+				E743736B1F2AEB1A00FFC34E /* Push.m */,
+				E743736D1F2AEB3900FFC34E /* Present.h */,
+				E743736E1F2AEB3900FFC34E /* Present.m */,
+				E74373701F2AEB4100FFC34E /* Home.h */,
+				E74373711F2AEB4100FFC34E /* Home.m */,
+			);
+			path = testHosts;
+			sourceTree = "<group>";
+		};
+		E74373691F2AEB0300FFC34E /* testPaths */ = {
+			isa = PBXGroup;
+			children = (
+				E74373791F2AEB7800FFC34E /* ViewC1.h */,
+				E743737A1F2AEB7800FFC34E /* ViewC1.m */,
+				E74373761F2AEB6C00FFC34E /* ViewC2.h */,
+				E74373771F2AEB6C00FFC34E /* ViewC2.m */,
+				E743737C1F2AEB8A00FFC34E /* ViewC3.h */,
+				E743737D1F2AEB8A00FFC34E /* ViewC3.m */,
+			);
+			path = testPaths;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,9 +219,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E743737B1F2AEB7800FFC34E /* ViewC1.m in Sources */,
 				E70A34501F2AD8490009EFB4 /* ViewController.m in Sources */,
+				E743736C1F2AEB1A00FFC34E /* Push.m in Sources */,
+				E74373721F2AEB4100FFC34E /* Home.m in Sources */,
+				E74373781F2AEB6C00FFC34E /* ViewC2.m in Sources */,
+				E743737E1F2AEB8A00FFC34E /* ViewC3.m in Sources */,
 				E70A346B1F2ADD250009EFB4 /* RouterMaker.m in Sources */,
+				E74373671F2AEA5100FFC34E /* RouterMakerConfig.m in Sources */,
 				E70A344D1F2AD8490009EFB4 /* AppDelegate.m in Sources */,
+				E743736F1F2AEB3900FFC34E /* Present.m in Sources */,
 				E70A344A1F2AD8490009EFB4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

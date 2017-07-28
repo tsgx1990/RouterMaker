@@ -74,6 +74,12 @@ static NSDictionary *routerPathClassMap()
     return routerPathClassMap;
 }
 
+static NSString *validQueryOrNil(NSString *query)
+{
+//    return [query isKindOfClass:[NSString class]] ? query : nil;
+    return query;
+}
+
 #pragma mark - -
 @interface RouterMakerPath ()
 
@@ -135,7 +141,7 @@ static RouterMaker *cls_routerHostKeyGetter(Class self, SEL _cmd)
     return maker;
 }
 
-static void ( ^ins_routerHostKeyGetter(RouterMaker *self, SEL _cmd) ) ()
+static void ( ^ins_routerHostKeyGetter(RouterMaker *self, SEL _cmd) ) (NSString *)
 {
     self.urlHostStr = NSStringFromSelector(_cmd);
     id blk = ^(NSString *query) {
@@ -162,27 +168,27 @@ static RouterMaker *ins_routerPathKeyGetter(RouterMaker *self, SEL _cmd)
     return self;
 }
 
-static RouterMaker *( ^$_cls_routerPathKeyBlockGetter(Class self, SEL _cmd) ) ()
+static RouterMaker *( ^$_cls_routerPathKeyBlockGetter(Class self, SEL _cmd) ) (NSString *)
 {
     id blk = ^(NSString *query) {
         
         RouterMaker *maker = [self new];
         RouterMakerPath *path = [RouterMakerPath new];
         path.path = trimmedStringOfSel(_cmd);
-        path.query = query;
+        path.query = validQueryOrNil(query);
         [maker.routerMakerPaths addObject:path];
         return maker;
     };
     return blk;
 }
 
-static RouterMaker *( ^$_ins_routerPathKeyBlockGetter(RouterMaker *self, SEL _cmd) ) ()
+static RouterMaker *( ^$_ins_routerPathKeyBlockGetter(RouterMaker *self, SEL _cmd) ) (NSString *)
 {
     id blk = ^(NSString *query) {
         
         RouterMakerPath *path = [RouterMakerPath new];
         path.path = trimmedStringOfSel(_cmd);
-        path.query = query;
+        path.query = validQueryOrNil(query);
         [self.routerMakerPaths addObject:path];
         return self;
     };
@@ -274,7 +280,7 @@ static RouterMaker *( ^$_ins_routerPathKeyBlockGetter(RouterMaker *self, SEL _cm
     return showBlock;
 }
 
-- (void (^)())open
+- (void (^)(NSString *))open
 {
     id openBlock = ^(NSString *query) {
         [self _showUsingStrategyWithQuery:query];
@@ -315,7 +321,7 @@ static RouterMaker *( ^$_ins_routerPathKeyBlockGetter(RouterMaker *self, SEL _cm
     context.scheme = self.urlSchemeStr;
     context.host = self.urlHostStr;
     context.routerPaths = self.routerMakerPaths;
-    context.query = query;
+    context.query = validQueryOrNil(query);
     return context;
 }
 
