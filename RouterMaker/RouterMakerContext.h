@@ -14,7 +14,7 @@
 @property (nonatomic, readonly) Class vcClass;
 
 @property (nonatomic, copy) NSString *path;
-@property (nonatomic, copy) NSString *query;
+@property (nonatomic, copy) id params;
 
 @end
 
@@ -23,7 +23,7 @@
 
 @property (nonatomic, copy) NSString *scheme;
 @property (nonatomic, copy) NSString *host;
-@property (nonatomic, copy) NSString *query;
+@property (nonatomic, copy) id params;
 @property (nonatomic, strong) NSArray<RouterMakerPath*> *routerPaths;
 
 @end

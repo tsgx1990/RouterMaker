@@ -29,6 +29,7 @@
     RouterMaker.push.vc3$(@"name=yl&age=5").open(nil);
     RouterMaker.vc2$(@"page=10&type=3").present(nil);
     RouterMaker.vc3.push(@"si=9&sex=female");
+    
 }
 
 

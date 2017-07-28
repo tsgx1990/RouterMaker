@@ -74,12 +74,6 @@ static NSDictionary *routerPathClassMap()
     return routerPathClassMap;
 }
 
-static NSString *validQueryOrNil(NSString *query)
-{
-//    return [query isKindOfClass:[NSString class]] ? query : nil;
-    return query;
-}
-
 #pragma mark - -
 @interface RouterMakerPath ()
 
@@ -97,7 +91,7 @@ static NSString *validQueryOrNil(NSString *query)
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<path: %@> <query: %@> <vcClass: %@>", self.path, self.query, self.vcClass];
+    return [NSString stringWithFormat:@"<path: %@> <params: %@> <vcClass: %@>", self.path, self.params, self.vcClass];
 }
 
 @end
@@ -111,7 +105,7 @@ static NSString *validQueryOrNil(NSString *query)
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<scheme: %@> \n<host: %@> \n<query: %@> \n<routerPaths: %@>", self.scheme, self.host, self.query, self.routerPaths];
+    return [NSString stringWithFormat:@"<scheme: %@> \n<host: %@> \n<params: %@> \n<routerPaths: %@>", self.scheme, self.host, self.params, self.routerPaths];
 }
 
 @end
@@ -122,7 +116,7 @@ static NSString *validQueryOrNil(NSString *query)
 @property (nonatomic, copy) NSString *urlHostStr;
 @property (nonatomic, strong) NSMutableArray<RouterMakerPath*> *routerMakerPaths;
 
-- (void)_showUsingStrategyWithQuery:(NSString *)query;
+- (void)_showUsingStrategyWithParams:(id)params;
 
 @end
 
@@ -141,11 +135,11 @@ static RouterMaker *cls_routerHostKeyGetter(Class self, SEL _cmd)
     return maker;
 }
 
-static void ( ^ins_routerHostKeyGetter(RouterMaker *self, SEL _cmd) ) (NSString *)
+static void ( ^ins_routerHostKeyGetter(RouterMaker *self, SEL _cmd) ) (id)
 {
     self.urlHostStr = NSStringFromSelector(_cmd);
-    id blk = ^(NSString *query) {
-        [self _showUsingStrategyWithQuery:query];
+    id blk = ^(id params) {
+        [self _showUsingStrategyWithParams:params];
     };
     return blk;
 }
@@ -168,27 +162,27 @@ static RouterMaker *ins_routerPathKeyGetter(RouterMaker *self, SEL _cmd)
     return self;
 }
 
-static RouterMaker *( ^$_cls_routerPathKeyBlockGetter(Class self, SEL _cmd) ) (NSString *)
+static RouterMaker *( ^$_cls_routerPathKeyBlockGetter(Class self, SEL _cmd) ) (id)
 {
-    id blk = ^(NSString *query) {
+    id blk = ^(id params) {
         
         RouterMaker *maker = [self new];
         RouterMakerPath *path = [RouterMakerPath new];
         path.path = trimmedStringOfSel(_cmd);
-        path.query = validQueryOrNil(query);
+        path.params = params;
         [maker.routerMakerPaths addObject:path];
         return maker;
     };
     return blk;
 }
 
-static RouterMaker *( ^$_ins_routerPathKeyBlockGetter(RouterMaker *self, SEL _cmd) ) (NSString *)
+static RouterMaker *( ^$_ins_routerPathKeyBlockGetter(RouterMaker *self, SEL _cmd) ) (id)
 {
-    id blk = ^(NSString *query) {
+    id blk = ^(id params) {
         
         RouterMakerPath *path = [RouterMakerPath new];
         path.path = trimmedStringOfSel(_cmd);
-        path.query = validQueryOrNil(query);
+        path.params = params;
         [self.routerMakerPaths addObject:path];
         return self;
     };
@@ -266,24 +260,24 @@ static RouterMaker *( ^$_ins_routerPathKeyBlockGetter(RouterMaker *self, SEL _cm
 }
 
 #pragma mark - - show style
-- (void (^)(NSString *, void (^)(RouterMakerContext *)))show
+- (void (^)(id, void (^)(RouterMakerContext *)))show
 {
-    id showBlock = ^(NSString *query, void(^how)()) {
+    id showBlock = ^(id params, void(^how)()) {
         if (how) {
-            RouterMakerContext *context = [self _routerMakerContextWithQuery:query];
+            RouterMakerContext *context = [self _routerMakerContextWithParams:params];
             how(context);
         }
         else {
-            [self _showUsingStrategyWithQuery:query];
+            [self _showUsingStrategyWithParams:params];
         }
     };
     return showBlock;
 }
 
-- (void (^)(NSString *))open
+- (void (^)(id))open
 {
-    id openBlock = ^(NSString *query) {
-        [self _showUsingStrategyWithQuery:query];
+    id openBlock = ^(id params) {
+        [self _showUsingStrategyWithParams:params];
     };
     return openBlock;
 }
@@ -315,19 +309,19 @@ static RouterMaker *( ^$_ins_routerPathKeyBlockGetter(RouterMaker *self, SEL _cm
     return prevScheme;
 }
 
-- (RouterMakerContext *)_routerMakerContextWithQuery:(NSString *)query
+- (RouterMakerContext *)_routerMakerContextWithParams:(id)params
 {
     RouterMakerContext *context = [RouterMakerContext new];
     context.scheme = self.urlSchemeStr;
     context.host = self.urlHostStr;
     context.routerPaths = self.routerMakerPaths;
-    context.query = validQueryOrNil(query);
+    context.params = params;
     return context;
 }
 
-- (void)_showUsingStrategyWithQuery:(NSString *)query
+- (void)_showUsingStrategyWithParams:(id)params
 {
-    RouterMakerContext *context = [self _routerMakerContextWithQuery:query];
+    RouterMakerContext *context = [self _routerMakerContextWithParams:params];
     [self showContext:context];
 }
 

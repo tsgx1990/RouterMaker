@@ -25,9 +25,9 @@
 
 @property (nonatomic, copy, readonly) NSString *(^toString)(NSString *urlQuery);
 
-@property (nonatomic, copy, readonly) void(^show)(NSString *urlQuery, void(^how)(RouterMakerContext *context));
+@property (nonatomic, copy, readonly) void(^show)(id params, void(^how)(RouterMakerContext *context));
 
-@property (nonatomic, copy, readonly) void(^open)( NSString *urlQuery );
+@property (nonatomic, copy, readonly) void(^open)(id params);
 
 /**
  对于从后台获取的 routerUrl 及其参数，可以将其解析成 RouterMakerContext 对象，然后调用此方法进行跳转

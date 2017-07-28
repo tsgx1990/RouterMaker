@@ -28,8 +28,8 @@
 #define _RouterMakerPath(_prefix, _path, _seperator, _class)    \
 @property (nonatomic, strong, readonly) RouterMaker *_path; \
 @property (nonatomic, class, readonly) RouterMaker *_path; \
-@property (nonatomic, copy, readonly) RouterMaker *(^ __RouterMakerPathMapBlock(_path) )(NSString *urlQuery) ;  \
-@property (nonatomic, class, readonly) RouterMaker *(^ __RouterMakerPathMapBlock(_path) )(NSString *urlQuery) ;  \
+@property (nonatomic, copy, readonly) RouterMaker *(^ __RouterMakerPathMapBlock(_path) )(id params) ;  \
+@property (nonatomic, class, readonly) RouterMaker *(^ __RouterMakerPathMapBlock(_path) )(id params) ;  \
 @property (nonatomic, strong, readonly) _class *_RouterMakerContact_4(_prefix, _path, _seperator, _class) UNAVAILABLE_ATTRIBUTE;
 
 #define __RouterMakerPathMapPrefix              __RouterMakerPath__
@@ -47,7 +47,7 @@
 
 #define _RouterMakerHost(_prefix, _host, _seperator, _class) \
 @property (nonatomic, class, readonly) RouterMaker *_host;      \
-@property (nonatomic, copy, readonly) void (^_host)(NSString *urlQuery);  \
+@property (nonatomic, copy, readonly) void (^_host)(id params);  \
 @property (nonatomic, strong, readonly) _class *_RouterMakerContact_4(_prefix, _host, _seperator, _class) UNAVAILABLE_ATTRIBUTE;
 
 #define __RouterMakerHostMapPrefix               __RouterMakerHost__
