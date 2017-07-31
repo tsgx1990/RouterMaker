@@ -10,13 +10,11 @@
 #import "RouterMakerContext.h"
 #import "RouterMakerMacro.h"
 
-#define RouterMaker_Host(_host, _class)         RouterMaker_Host_O(_host, _class)
-
-#define RouterMaker_Path(_path, _class)         RouterMaker_Path_O(_path, _class)
-
 #define RouterMaker_CustomScheme(_custom_scheme)        RouterMaker_CustomScheme_O(_custom_scheme)
 
-#define RouterMaker_CustomHostsAndPaths(_custom_hosts, _custom_paths)   RouterMaker_CustomHostsAndPaths_O(_custom_hosts, _custom_paths)
+#define RouterMaker_ConfigHost(_host, _class)   RouterMaker_ConfigHost_O(_host, _class)
+
+#define RouterMaker_ConfigPath(_path, _class)   RouterMaker_ConfigPath_O(_path, _class)
 
 
 @interface RouterMaker : NSObject
@@ -48,5 +46,7 @@
 + (NSString *)resetScheme:(NSString *)scheme;
 
 @end
+
+
 
 

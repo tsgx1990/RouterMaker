@@ -19,22 +19,42 @@
 
 RouterMaker_CustomScheme(tsgx)
 
-RouterMaker_CustomHostsAndPaths
-(
-    RouterMaker_Host(push,              Push)
-    RouterMaker_Host(present,           Present)
-    RouterMaker_Host(home,              Home)
- 
-,
- 
-    RouterMaker_Path(vc1,               ViewC1)
-    RouterMaker_Path(vc2,               ViewC2)
-    RouterMaker_Path(vc3,               ViewC3)
- 
-)
+
+RouterMaker_ConfigHost(push, Push)
+RouterMaker_ConfigHost(present, Present)
+RouterMaker_ConfigHost(home, Home)
+
+
+RouterMaker_ConfigPath(vc1, ViewC1)
+RouterMaker_ConfigPath(vc2, ViewC2)
+RouterMaker_ConfigPath(vc3, ViewC3)
+
+
+@protocol __host_proto__211_45_ <NSObject>
+
+@end
+
+
+//@interface RouterMaker ( __host_proto__2_45_1 ) <__host_proto__211_45_>
+//
+//- (id)name123;
+//
+//@end
+//
+//
+//@implementation RouterMaker ( __host_proto__2_45_1 )
+//
+//- (id)name123
+//{
+//    return @"fuck";
+//}
+//
+//@end
 
 
 @interface RouterMakerConfig : RouterMaker
+
+//@property (nonatomic, readonly) void(*ptr)(id, SEL);
 
 @end
 

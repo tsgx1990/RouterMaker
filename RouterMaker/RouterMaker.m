@@ -11,66 +11,86 @@
 
 static NSString *currentRouterScheme = RouterMaker_DefaultScheme;
 
+static void getRouterKeyClassMap(NSDictionary **hostMap, NSDictionary **pathMap)
+{
+    static NSMutableSet *mProtoNames = nil;
+    
+    if (!mProtoNames.count) {
+        
+        unsigned int count = 0;
+        Protocol * __unsafe_unretained * protoList = class_copyProtocolList([RouterMaker class], &count);
+        
+        if (count > 0 && !mProtoNames) {
+            mProtoNames = [NSMutableSet setWithCapacity:6];
+        }
+        
+        for (int i=0; i<count; i++) {
+            Protocol *proto = protoList[i];
+            NSLog(@"proto: %@", NSStringFromProtocol(proto));
+            [mProtoNames addObject:proto];
+            
+        }
+        free(protoList);
+    }
+    
+    if (!mProtoNames.count) {
+        return;
+    }
+    
+    NSMutableDictionary *mHostMap = hostMap ? [*hostMap mutableCopy] : nil;
+    NSMutableDictionary *mPathMap = pathMap ? [*pathMap mutableCopy] : nil;
+    
+    for (Protocol *proto in mProtoNames) {
+        
+        NSString *protoName = NSStringFromProtocol(proto);
+        
+        if (hostMap && [protoName hasPrefix:RouterMaker_HostProto_Str]) {
+            
+            NSArray *arr = [protoName componentsSeparatedByString:RouterMaker_ProtoSeperator_Str];
+            if (!mHostMap) {
+                mHostMap = [NSMutableDictionary dictionaryWithCapacity:3];
+            }
+            [mHostMap setValue:NSClassFromString(arr.lastObject) forKey:arr[arr.count-2]];
+            
+        }
+        if (pathMap && [protoName hasPrefix:RouterMaker_PathProto_Str]) {
+            
+            NSArray *arr = [protoName componentsSeparatedByString:RouterMaker_ProtoSeperator_Str];
+            if (!mPathMap) {
+                mPathMap = [NSMutableDictionary dictionaryWithCapacity:3];
+            }
+            [mPathMap setValue:NSClassFromString(arr.lastObject) forKey:arr[arr.count-2]];
+        }
+    }
+    
+    if (hostMap) {
+        *hostMap = mHostMap.copy;
+    }
+    if (pathMap) {
+        *pathMap = mPathMap.copy;
+    }
+}
+
 #pragma mark - - get url path and host map
 static NSDictionary *routerHostClassMap()
 {
     static NSDictionary *routerHostClassMap = nil;
-    if (routerHostClassMap) {
-        return routerHostClassMap;
+    if (!routerHostClassMap) {
+        NSDictionary *hosts = nil;
+        getRouterKeyClassMap(&hosts, NULL);
+        routerHostClassMap = hosts.copy;
     }
-    
-    unsigned int count = 0;
-    Protocol *proto = NSProtocolFromString(RouterMaker_HostProtocol_Str);
-    objc_property_t *propertyList = protocol_copyPropertyList(proto, &count);
-    
-    if (count > 0) {
-        
-        NSMutableDictionary *hostClassMap = [NSMutableDictionary dictionaryWithCapacity:3];
-        for(int i=0;i<count;i++) {
-            objc_property_t property = propertyList[i];
-            const char* propertyName = property_getName(property);
-            NSString *proName = [[NSString alloc] initWithCString:propertyName encoding:NSUTF8StringEncoding];
-            
-            if ([proName hasPrefix:RouterMakerHostMapPrefix]) {
-                NSString *mapStr = [proName substringFromIndex:RouterMakerHostMapPrefix.length];
-                NSArray *mapArr = [mapStr componentsSeparatedByString:RouterMakerHostMapSeperator];
-                [hostClassMap setValue:NSClassFromString(mapArr[1]) forKey:mapArr[0]];
-            }
-        }
-        routerHostClassMap = [hostClassMap copy];
-    }
-    free(propertyList);
     return routerHostClassMap;
 }
 
 static NSDictionary *routerPathClassMap()
 {
     static NSDictionary *routerPathClassMap = nil;
-    if (routerPathClassMap) {
-        return routerPathClassMap;
+    if (!routerPathClassMap) {
+        NSDictionary *paths = nil;
+        getRouterKeyClassMap(NULL, &paths);
+        routerPathClassMap = paths.copy;
     }
-    
-    unsigned int count = 0;
-    Protocol *proto = NSProtocolFromString(RouterMaker_PathProtocol_Str);
-    objc_property_t *propertyList =  protocol_copyPropertyList(proto, &count);
-    
-    if (count > 0) {
-        
-        NSMutableDictionary *pathClassMap = [NSMutableDictionary dictionaryWithCapacity:3];
-        for(int i=0;i<count;i++) {
-            objc_property_t property = propertyList[i];
-            const char* propertyName = property_getName(property);
-            NSString *proName = [[NSString alloc] initWithCString:propertyName encoding:NSUTF8StringEncoding];
-            
-            if ([proName hasPrefix:RouterMakerPathMapPrefix]) {
-                NSString *mapStr = [proName substringFromIndex:RouterMakerPathMapPrefix.length];
-                NSArray *mapArr = [mapStr componentsSeparatedByString:RouterMakerPathMapSeperator];
-                [pathClassMap setValue:NSClassFromString(mapArr[1]) forKey:mapArr[0]];
-            }
-        }
-        routerPathClassMap = [pathClassMap copy];
-    }
-    free(propertyList);
     return routerPathClassMap;
 }
 
@@ -331,3 +351,4 @@ static RouterMaker *( ^$_ins_routerPathKeyBlockGetter(RouterMaker *self, SEL _cm
 }
 
 @end
+

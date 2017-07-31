@@ -11,3 +11,13 @@
 @implementation RouterMakerConfig
 
 @end
+
+
+//@implementation RouterMaker ( __host_proto__2_45_1 )
+//
+//- (id)name123
+//{
+//    return @"fuck";
+//}
+//
+//@end

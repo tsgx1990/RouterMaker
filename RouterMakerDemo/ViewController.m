@@ -30,6 +30,14 @@
     RouterMaker.vc2$(@"page=10&type=3").present(nil);
     RouterMaker.vc3.push(@"si=9&sex=female");
     
+//    RouterMaker.;
+    
+
+//    NSLog(@"%@", [RouterMaker new].name1);
+    
+    NSLog(@"%@", _RouterMakerToString(RouterMaker_ConfigHost(push, Push)));
+    NSLog(@"%@", _RouterMakerToString(RouterMaker_ConfigPath(vc1, ViewC1)));
+    
 }
 
 
