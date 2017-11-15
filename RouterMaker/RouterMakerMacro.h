@@ -25,20 +25,23 @@
 #define __RouterMakerPathMapBlockSuffix             $
 #define __RouterMakerPathMapBlock(_path)            _RouterMakerContact_2(_path, __RouterMakerPathMapBlockSuffix)
 
-#define RouterMaker_Dynamic                         _router_maker_dynamic
-#define RouterMaker_DynamicCls                      _RouterMakerContact_2(RouterMaker_Dynamic, _$$$_)
-#define RouterMaker_DynamicIns                      _RouterMakerContact_2(RouterMaker_Dynamic, _$_$_)
-
-#define RouterMaker_DynamicCls_Path(_path)          _RouterMakerContact_2(RouterMaker_DynamicCls, _path)
-#define RouterMaker_DynamicIns_Path(_path)          _RouterMakerContact_2(RouterMaker_DynamicIns, _path)
-
-#define RouterMaker_DynamicCls_BlockPath(_path)     \
-    _RouterMakerContact_2(RouterMaker_DynamicCls, __RouterMakerPathMapBlock(_path))
-#define RouterMaker_DynamicIns_BlockPath(_path)     \
-    _RouterMakerContact_2(RouterMaker_DynamicIns, __RouterMakerPathMapBlock(_path))
-
-#define RouterMaker_Dynamic_Property(_key)      \
-    property (nonatomic, class, readonly) void( *_key )(id, SEL);   \
+//#define RouterMaker_DynamicMap                      _router_maker_dynamic_map_
+//#define RouterMaker_DynamicMap_Key(_key)            _RouterMakerContact_2(RouterMaker_DynamicMap, _key)
+//
+//#define RouterMaker_DynamicImp                      _router_maker_dynamic_imp_
+//#define RouterMaker_DynamicImpCls                   _RouterMakerContact_2(RouterMaker_DynamicImp, _$$$_)
+//#define RouterMaker_DynamicImpIns                   _RouterMakerContact_2(RouterMaker_DynamicImp, _$_$_)
+//
+//#define RouterMaker_DynamicImpCls_Path(_path)       _RouterMakerContact_2(RouterMaker_DynamicImpCls, _path)
+//#define RouterMaker_DynamicImpIns_Path(_path)       _RouterMakerContact_2(RouterMaker_DynamicImpIns, _path)
+//
+//#define RouterMaker_DynamicImpCls_BlockPath(_path)     \
+//    _RouterMakerContact_2(RouterMaker_DynamicImpCls, __RouterMakerPathMapBlock(_path))
+//#define RouterMaker_DynamicImpIns_BlockPath(_path)     \
+//    _RouterMakerContact_2(RouterMaker_DynamicImpIns, __RouterMakerPathMapBlock(_path))
+//
+//#define RouterMaker_DynamicImpProperty(_key)      \
+//    property (nonatomic, class, readonly) void( *_key )(id, SEL);   \
 
 
 #define _RouterMakerPath(_prefix, _path, _seperator, _class)    \
@@ -47,10 +50,10 @@
 @property (nonatomic, copy, readonly) RouterMaker *(^ __RouterMakerPathMapBlock(_path) )(id params) ;  \
 @property (nonatomic, class, readonly) RouterMaker *(^ __RouterMakerPathMapBlock(_path) )(id params) ;  \
 @property (nonatomic, strong, readonly) _class *_RouterMakerContact_4(_prefix, _path, _seperator, _class) UNAVAILABLE_ATTRIBUTE;    \
-@RouterMaker_Dynamic_Property( RouterMaker_DynamicCls_Path(_path) )    \
-@RouterMaker_Dynamic_Property( RouterMaker_DynamicIns_Path(_path) ) \
-@RouterMaker_Dynamic_Property( RouterMaker_DynamicCls_BlockPath(_path) )    \
-@RouterMaker_Dynamic_Property( RouterMaker_DynamicIns_BlockPath(_path) )    \
+//@RouterMaker_DynamicImpProperty( RouterMaker_DynamicImpCls_Path(_path) )    \
+//@RouterMaker_DynamicImpProperty( RouterMaker_DynamicImpIns_Path(_path) ) \
+//@RouterMaker_DynamicImpProperty( RouterMaker_DynamicImpCls_BlockPath(_path) )    \
+//@RouterMaker_DynamicImpProperty( RouterMaker_DynamicImpIns_BlockPath(_path) )    \
 
 
 #define __RouterMakerPathMapPrefix              __RouterMakerPath__
@@ -72,8 +75,8 @@
 @property (nonatomic, class, readonly) RouterMaker *_host;      \
 @property (nonatomic, copy, readonly) void (^_host)(id params);  \
 @property (nonatomic, strong, readonly) _class *_RouterMakerContact_4(_prefix, _host, _seperator, _class) UNAVAILABLE_ATTRIBUTE;    \
-@RouterMaker_Dynamic_Property( RouterMaker_DynamicCls_Path(_host) )     \
-@RouterMaker_Dynamic_Property( RouterMaker_DynamicIns_Path(_host) )     \
+//@RouterMaker_DynamicImpProperty( RouterMaker_DynamicImpCls_Path(_host) )     \
+//@RouterMaker_DynamicImpProperty( RouterMaker_DynamicImpIns_Path(_host) )     \
 
 
 #define __RouterMakerHostMapPrefix               __RouterMakerHost__

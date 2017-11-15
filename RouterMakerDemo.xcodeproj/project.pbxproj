@@ -32,7 +32,6 @@
 		E70A344F1F2AD8490009EFB4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E70A34521F2AD8490009EFB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E70A34541F2AD8490009EFB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E70A34571F2AD84A0009EFB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E70A34591F2AD84A0009EFB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E70A34671F2ADD250009EFB4 /* RouterMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouterMaker.h; sourceTree = "<group>"; };
 		E70A34681F2ADD250009EFB4 /* RouterMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouterMaker.m; sourceTree = "<group>"; };
@@ -52,6 +51,7 @@
 		E743737A1F2AEB7800FFC34E /* ViewC1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewC1.m; sourceTree = "<group>"; };
 		E743737C1F2AEB8A00FFC34E /* ViewC3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewC3.h; sourceTree = "<group>"; };
 		E743737D1F2AEB8A00FFC34E /* ViewC3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewC3.m; sourceTree = "<group>"; };
+		E775AA5B1FBC28CE0070CE19 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,7 +247,7 @@
 		E70A34561F2AD8490009EFB4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E70A34571F2AD84A0009EFB4 /* Base */,
+				E775AA5B1FBC28CE0070CE19 /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

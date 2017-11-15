@@ -11,40 +11,37 @@
 
 static NSString *currentRouterScheme = RouterMaker_DefaultScheme;
 
-static void getRouterKeyClassMap(NSDictionary **hostMap, NSDictionary **pathMap)
+static NSDictionary *_routerHostClassMap = nil;
+static NSDictionary *_routerPathClassMap = nil;
+
+static void _getRouterKeyClassMap()
 {
-    static NSMutableSet *mProtoNames = nil;
+    unsigned int count = 0;
+    Protocol * __unsafe_unretained * protoList = class_copyProtocolList([RouterMaker class], &count);
     
-    if (!mProtoNames.count) {
-        
-        unsigned int count = 0;
-        Protocol * __unsafe_unretained * protoList = class_copyProtocolList([RouterMaker class], &count);
-        
-        if (count > 0 && !mProtoNames) {
-            mProtoNames = [NSMutableSet setWithCapacity:6];
-        }
-        
+    NSMutableSet *mProtoNames = nil;
+    if (count > 0) {
+        mProtoNames = [NSMutableSet setWithCapacity:6];
         for (int i=0; i<count; i++) {
             Protocol *proto = protoList[i];
             NSLog(@"proto: %@", NSStringFromProtocol(proto));
             [mProtoNames addObject:proto];
-            
         }
-        free(protoList);
     }
+    free(protoList);
     
     if (!mProtoNames.count) {
         return;
     }
     
-    NSMutableDictionary *mHostMap = hostMap ? [*hostMap mutableCopy] : nil;
-    NSMutableDictionary *mPathMap = pathMap ? [*pathMap mutableCopy] : nil;
+    NSMutableDictionary *mHostMap = nil;
+    NSMutableDictionary *mPathMap = nil;
     
     for (Protocol *proto in mProtoNames) {
         
         NSString *protoName = NSStringFromProtocol(proto);
         
-        if (hostMap && [protoName hasPrefix:RouterMaker_HostProto_Str]) {
+        if ([protoName hasPrefix:RouterMaker_HostProto_Str]) {
             
             NSArray *arr = [protoName componentsSeparatedByString:RouterMaker_ProtoSeperator_Str];
             if (!mHostMap) {
@@ -53,7 +50,7 @@ static void getRouterKeyClassMap(NSDictionary **hostMap, NSDictionary **pathMap)
             [mHostMap setValue:NSClassFromString(arr.lastObject) forKey:arr[arr.count-2]];
             
         }
-        if (pathMap && [protoName hasPrefix:RouterMaker_PathProto_Str]) {
+        if ([protoName hasPrefix:RouterMaker_PathProto_Str]) {
             
             NSArray *arr = [protoName componentsSeparatedByString:RouterMaker_ProtoSeperator_Str];
             if (!mPathMap) {
@@ -63,35 +60,25 @@ static void getRouterKeyClassMap(NSDictionary **hostMap, NSDictionary **pathMap)
         }
     }
     
-    if (hostMap) {
-        *hostMap = mHostMap.copy;
-    }
-    if (pathMap) {
-        *pathMap = mPathMap.copy;
-    }
+    _routerHostClassMap = mHostMap.copy;
+    _routerPathClassMap = mPathMap.copy;
 }
 
 #pragma mark - - get url path and host map
 static NSDictionary *routerHostClassMap()
 {
-    static NSDictionary *routerHostClassMap = nil;
-    if (!routerHostClassMap) {
-        NSDictionary *hosts = nil;
-        getRouterKeyClassMap(&hosts, NULL);
-        routerHostClassMap = hosts.copy;
+    if (!_routerHostClassMap) {
+        _getRouterKeyClassMap();
     }
-    return routerHostClassMap;
+    return _routerHostClassMap;
 }
 
 static NSDictionary *routerPathClassMap()
 {
-    static NSDictionary *routerPathClassMap = nil;
-    if (!routerPathClassMap) {
-        NSDictionary *paths = nil;
-        getRouterKeyClassMap(NULL, &paths);
-        routerPathClassMap = paths.copy;
+    if (!_routerPathClassMap) {
+        _getRouterKeyClassMap();
     }
-    return routerPathClassMap;
+    return _routerPathClassMap;
 }
 
 #pragma mark - -

@@ -30,24 +30,26 @@ RouterMaker_ConfigPath(vc2, ViewC2)
 RouterMaker_ConfigPath(vc3, ViewC3)
 
 
-@protocol __host_proto__211_45_ <NSObject>
-
-@end
-
-
+//@protocol __host_proto__211_45_ <NSObject>
+//
+//@optional
+//- (id)name123;
+//
+//@end
+//
+//
 //@interface RouterMaker ( __host_proto__2_45_1 ) <__host_proto__211_45_>
 //
-//- (id)name123;
 //
 //@end
 //
 //
 //@implementation RouterMaker ( __host_proto__2_45_1 )
 //
-//- (id)name123
-//{
-//    return @"fuck";
-//}
+////- (id)name123
+////{
+////    return @"fuck";
+////}
 //
 //@end
 
