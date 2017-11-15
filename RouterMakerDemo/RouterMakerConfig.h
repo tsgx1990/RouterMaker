@@ -12,22 +12,21 @@
 #import "Present.h"
 #import "Home.h"
 
-#import "ViewC1.h"
-#import "ViewC2.h"
-#import "ViewC3.h"
+//#import "ViewC1.h"
+//#import "ViewC2.h"
+//#import "ViewC3.h"
 
 
 RouterMaker_CustomScheme(tsgx)
-
 
 RouterMaker_ConfigHost(push, Push)
 RouterMaker_ConfigHost(present, Present)
 RouterMaker_ConfigHost(home, Home)
 
 
-RouterMaker_ConfigPath(vc1, ViewC1)
-RouterMaker_ConfigPath(vc2, ViewC2)
-RouterMaker_ConfigPath(vc3, ViewC3)
+//RouterMaker_ConfigPath(vc1, ViewC1)
+//RouterMaker_ConfigPath(vc2, ViewC2)
+//RouterMaker_ConfigPath(vc3, ViewC3)
 
 
 //@protocol __host_proto__211_45_ <NSObject>

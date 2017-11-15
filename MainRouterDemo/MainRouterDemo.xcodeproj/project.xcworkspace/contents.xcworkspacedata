@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/lgl/Music/MyGithub/RouterMaker/RouterMakerDemo.xcodeproj">
+      location = "self:MainRouterDemo.xcodeproj">
    </FileRef>
 </Workspace>

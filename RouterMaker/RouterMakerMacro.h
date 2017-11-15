@@ -125,11 +125,15 @@
 #define RouterMaker_ProtoSeperator_Str      _RouterMakerToString(RouterMaker_ProtoSeperator)
 
 
-#define _RouterMaker_Add_Interface_Proto_(_proto_name)     \
+// 此处的 +load 方法是为了使 _class 类完成类加载，这样才能根据 NSClassFromString() 得到类对象
+#define _RouterMaker_Add_Interface_Proto_(_proto_name, _class)     \
 @interface RouterMaker ( _proto_name ) <_proto_name>     \
 @end    \
 \
 @implementation RouterMaker ( _proto_name )     \
++ (void)load {      \
+    [_class class];     \
+}        \
 @end    \
 
 
@@ -140,7 +144,7 @@
 RouterMaker_Host_O(_host, _class) \
 @end    \
 \
-_RouterMaker_Add_Interface_Proto_(_proto_name)
+_RouterMaker_Add_Interface_Proto_(_proto_name, _class)
 
 
 #define _RouterMaker_Config_Path_(_path, _class, _proto_name)   \
@@ -150,7 +154,7 @@ _RouterMaker_Add_Interface_Proto_(_proto_name)
 RouterMaker_Path_O(_path, _class)   \
 @end    \
 \
-_RouterMaker_Add_Interface_Proto_(_proto_name)
+_RouterMaker_Add_Interface_Proto_(_proto_name, _class)
 
 
 #define _RouterMaker_Contact_Proto(_proto, _key, _value)    \

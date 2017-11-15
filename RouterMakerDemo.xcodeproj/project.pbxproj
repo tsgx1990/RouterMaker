@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E706B8B11FBC5D3B0038A810 /* RouterMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = E70A34681F2ADD250009EFB4 /* RouterMaker.m */; };
+		E706B8B21FBC5D3B0038A810 /* RouterMakerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E74373661F2AEA5100FFC34E /* RouterMakerConfig.m */; };
+		E706B8B31FBC5D3B0038A810 /* Push.m in Sources */ = {isa = PBXBuildFile; fileRef = E743736B1F2AEB1A00FFC34E /* Push.m */; };
+		E706B8B41FBC5D3B0038A810 /* Present.m in Sources */ = {isa = PBXBuildFile; fileRef = E743736E1F2AEB3900FFC34E /* Present.m */; };
+		E706B8B51FBC5D3B0038A810 /* Home.m in Sources */ = {isa = PBXBuildFile; fileRef = E74373711F2AEB4100FFC34E /* Home.m */; };
 		E70A344A1F2AD8490009EFB4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E70A34491F2AD8490009EFB4 /* main.m */; };
 		E70A344D1F2AD8490009EFB4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E70A344C1F2AD8490009EFB4 /* AppDelegate.m */; };
 		E70A34501F2AD8490009EFB4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70A344F1F2AD8490009EFB4 /* ViewController.m */; };
@@ -21,7 +26,33 @@
 		E74373781F2AEB6C00FFC34E /* ViewC2.m in Sources */ = {isa = PBXBuildFile; fileRef = E74373771F2AEB6C00FFC34E /* ViewC2.m */; };
 		E743737B1F2AEB7800FFC34E /* ViewC1.m in Sources */ = {isa = PBXBuildFile; fileRef = E743737A1F2AEB7800FFC34E /* ViewC1.m */; };
 		E743737E1F2AEB8A00FFC34E /* ViewC3.m in Sources */ = {isa = PBXBuildFile; fileRef = E743737D1F2AEB8A00FFC34E /* ViewC3.m */; };
+		E785F5F31FBC4CA300B8F826 /* RouterMakerContext.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E70A34691F2ADD250009EFB4 /* RouterMakerContext.h */; };
+		E785F5F51FBC4CA300B8F826 /* RouterMaker.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E70A34671F2ADD250009EFB4 /* RouterMaker.h */; };
+		E785F61E1FBC529100B8F826 /* RouterMakerConfig.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E74373651F2AEA5100FFC34E /* RouterMakerConfig.h */; };
+		E785F61F1FBC534100B8F826 /* RouterMakerMacro.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E70A346A1F2ADD250009EFB4 /* RouterMakerMacro.h */; };
+		E785F6201FBC535D00B8F826 /* Push.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E743736A1F2AEB1A00FFC34E /* Push.h */; };
+		E785F6211FBC535D00B8F826 /* Present.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E743736D1F2AEB3900FFC34E /* Present.h */; };
+		E785F6221FBC535D00B8F826 /* Home.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E74373701F2AEB4100FFC34E /* Home.h */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E785F5DE1FBC4A5500B8F826 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				E785F6201FBC535D00B8F826 /* Push.h in CopyFiles */,
+				E785F6211FBC535D00B8F826 /* Present.h in CopyFiles */,
+				E785F6221FBC535D00B8F826 /* Home.h in CopyFiles */,
+				E785F61F1FBC534100B8F826 /* RouterMakerMacro.h in CopyFiles */,
+				E785F61E1FBC529100B8F826 /* RouterMakerConfig.h in CopyFiles */,
+				E785F5F31FBC4CA300B8F826 /* RouterMakerContext.h in CopyFiles */,
+				E785F5F51FBC4CA300B8F826 /* RouterMaker.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E70A34451F2AD8490009EFB4 /* RouterMakerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RouterMakerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,10 +83,18 @@
 		E743737C1F2AEB8A00FFC34E /* ViewC3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewC3.h; sourceTree = "<group>"; };
 		E743737D1F2AEB8A00FFC34E /* ViewC3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewC3.m; sourceTree = "<group>"; };
 		E775AA5B1FBC28CE0070CE19 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E785F5E01FBC4A5500B8F826 /* libRouterMaker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRouterMaker.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E70A34421F2AD8490009EFB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E785F5DD1FBC4A5500B8F826 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -78,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				E70A34451F2AD8490009EFB4 /* RouterMakerDemo.app */,
+				E785F5E01FBC4A5500B8F826 /* libRouterMaker.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -167,6 +207,23 @@
 			productReference = E70A34451F2AD8490009EFB4 /* RouterMakerDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E785F5DF1FBC4A5500B8F826 /* RouterMaker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E785F5E61FBC4A5500B8F826 /* Build configuration list for PBXNativeTarget "RouterMaker" */;
+			buildPhases = (
+				E785F5DC1FBC4A5500B8F826 /* Sources */,
+				E785F5DD1FBC4A5500B8F826 /* Frameworks */,
+				E785F5DE1FBC4A5500B8F826 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RouterMaker;
+			productName = RouterMaker;
+			productReference = E785F5E01FBC4A5500B8F826 /* libRouterMaker.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -178,6 +235,11 @@
 				TargetAttributes = {
 					E70A34441F2AD8490009EFB4 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = QCG7464ETA;
+						ProvisioningStyle = Automatic;
+					};
+					E785F5DF1FBC4A5500B8F826 = {
+						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = QCG7464ETA;
 						ProvisioningStyle = Automatic;
 					};
@@ -197,6 +259,7 @@
 			projectRoot = "";
 			targets = (
 				E70A34441F2AD8490009EFB4 /* RouterMakerDemo */,
+				E785F5DF1FBC4A5500B8F826 /* RouterMaker */,
 			);
 		};
 /* End PBXProject section */
@@ -230,6 +293,18 @@
 				E70A344D1F2AD8490009EFB4 /* AppDelegate.m in Sources */,
 				E743736F1F2AEB3900FFC34E /* Present.m in Sources */,
 				E70A344A1F2AD8490009EFB4 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E785F5DC1FBC4A5500B8F826 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E706B8B11FBC5D3B0038A810 /* RouterMaker.m in Sources */,
+				E706B8B21FBC5D3B0038A810 /* RouterMakerConfig.m in Sources */,
+				E706B8B31FBC5D3B0038A810 /* Push.m in Sources */,
+				E706B8B41FBC5D3B0038A810 /* Present.m in Sources */,
+				E706B8B51FBC5D3B0038A810 /* Home.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +446,28 @@
 			};
 			name = Release;
 		};
+		E785F5E71FBC4A5500B8F826 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = QCG7464ETA;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E785F5E81FBC4A5500B8F826 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = QCG7464ETA;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -388,6 +485,15 @@
 			buildConfigurations = (
 				E70A345D1F2AD84A0009EFB4 /* Debug */,
 				E70A345E1F2AD84A0009EFB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E785F5E61FBC4A5500B8F826 /* Build configuration list for PBXNativeTarget "RouterMaker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E785F5E71FBC4A5500B8F826 /* Debug */,
+				E785F5E81FBC4A5500B8F826 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

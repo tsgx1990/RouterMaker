@@ -1,22 +1,17 @@
 //
 //  ViewController.m
-//  RouterMakerDemo
+//  MainRouterDemo
 //
-//  Created by guanglong on 2017/7/28.
-//  Copyright © 2017年 bjhl. All rights reserved.
+//  Created by guanglong on 2017/11/15.
+//  Copyright © 2017年 lgl. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "RouterMakerConfig.h"
+#import "AppDelegate.h"
 
-
-#import "ViewC1.h"
-#import "ViewC2.h"
 #import "ViewC3.h"
 
 
-RouterMaker_ConfigPath(vc1, ViewC1)
-RouterMaker_ConfigPath(vc2, ViewC2)
 RouterMaker_ConfigPath(vc3, ViewC3)
 
 @interface ViewController ()
@@ -40,10 +35,10 @@ RouterMaker_ConfigPath(vc3, ViewC3)
     RouterMaker.vc2$(@"page=10&type=3").present(nil);
     RouterMaker.vc3.push(@"si=9&sex=female");
     
-//    RouterMaker.;
+    //    RouterMaker.;
     
-
-//    NSLog(@"%@", [RouterMaker new].name1);
+    
+    //    NSLog(@"%@", [RouterMaker new].name1);
     
     NSLog(@"%@", _RouterMakerToString(RouterMaker_ConfigHost(push, Push)));
     NSLog(@"%@", _RouterMakerToString(RouterMaker_ConfigPath(vc1, ViewC1)));
@@ -54,12 +49,6 @@ RouterMaker_ConfigPath(vc3, ViewC3)
 {
     [super touchesBegan:touches withEvent:event];
     RouterMaker.vc3.home(@"si=9&sex=female");
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
